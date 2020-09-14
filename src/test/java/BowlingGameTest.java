@@ -22,16 +22,24 @@ public class BowlingGameTest {
     @Test
     void should_return_total_score_when_the_tenth_is_strike() {
         BowlinGame bowlinGame = new BowlinGame();
-        int[] score = {1, 1, 10, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 1, 1};
+        int[] score = {1, 1, 10, 1, 1, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 1, 1};
         int totalScore = bowlinGame.calculateScore(score);
-        assertEquals(40, totalScore);
+        assertEquals(49, totalScore);
     }
 
     @Test
     void should_return_total_score_when_the_tenth_is_spare() {
         BowlinGame bowlinGame = new BowlinGame();
-        int[] score = {1, 1, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 1};
+        int[] score = {1, 1, 5, 5, 1, 1, 10, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 1};
         int totalScore = bowlinGame.calculateScore(score);
-        assertEquals(38, totalScore);
+        assertEquals(48, totalScore);
+    }
+
+    @Test
+    void should_return_total_score_when_the_tenth_is_not_spare_or_strike() {
+        BowlinGame bowlinGame = new BowlinGame();
+        int[] score = {1, 1, 5, 5, 1, 1, 10, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 4};
+        int totalScore = bowlinGame.calculateScore(score);
+        assertEquals(44, totalScore);
     }
 }
