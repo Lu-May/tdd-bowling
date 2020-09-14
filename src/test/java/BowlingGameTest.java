@@ -26,4 +26,12 @@ public class BowlingGameTest {
         int totalScore = bowlinGame.calculateScore(score);
         assertEquals(40, totalScore);
     }
+
+    @Test
+    void should_return_total_score_when_the_tenth_is_spare() {
+        BowlinGame bowlinGame = new BowlinGame();
+        int[] score = {1, 1, 5, 5, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 5, 1};
+        int totalScore = bowlinGame.calculateScore(score);
+        assertEquals(38, totalScore);
+    }
 }
